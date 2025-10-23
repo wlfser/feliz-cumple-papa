@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Papá!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .achievement-badge {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            border: 4px solid #fff;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            margin: -80px auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            text-align: center;
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .achievement-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .achievement-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .achievement-box::before {
+            content: '🎮';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            opacity: 0.3;
+        }
+        
+        .achievement-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .achievement-desc {
+            font-size: 1em;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .hidden-message {
+            background: #f7f7f7;
+            border-left: 4px solid #fda085;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .reveal-btn {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(253, 160, 133, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .reveal-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(253, 160, 133, 0.6);
+        }
+        
+        .final-message {
+            text-align: center;
+            font-size: 1.3em;
+            color: #333;
+            line-height: 1.8;
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(246, 211, 101, 0.2) 0%, rgba(253, 160, 133, 0.2) 100%);
+            border-radius: 15px;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #fda085;
+            position: absolute;
+            animation: confetti-fall 3s linear infinite;
+        }
+        
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="achievement-badge">🏆</div>
+        
+        <h1>¡LOGRO DESBLOQUEADO!</h1>
+        <div class="subtitle">🎂 ¡Feliz Cumpleaños Papá! 🎂</div>
+        
+        <div class="stats-container">
+            <div class="stat-box">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Momentos épicos</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">1000%</span>
+                <span class="stat-label">Mejor papá</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">💯</span>
+                <span class="stat-label">Nivel legendario</span>
+            </div>
+        </div>
+        
+        <div class="achievement-box" onclick="toggleMessage('msg1')">
+            <div class="achievement-title">🎮 Achievement: "Maestro del Juego"</div>
+            <div class="achievement-desc">Has desbloqueado incontables victorias en videojuegos y partidas épicas de ping pong y squash. ¡Eres el rival más difícil de vencer!</div>
+        </div>
+        <div id="msg1" class="hidden-message">
+            <p><strong>Recuerdo especial:</strong> Gracias por enseñarme a jugar y por compartir tantos momentos llenos de aprendizaje. Me has mostrado que el verdadero triunfo se alcanza con esfuerzo y dedicación. Aún no logro ganarte en squash, pero estoy seguro de que algún día lo haré. Te amo.</p>
+        </div>
+        
+        <div class="achievement-box" onclick="toggleMessage('msg2')">
+            <div class="achievement-title">📚 Achievement: "Sabio Compartido"</div>
+            <div class="achievement-desc">Siempre dispuesto a enseñar y aprender. Nos has mostrado que la curiosidad no tiene edad y que cada día es una oportunidad para crecer.</div>
+        </div>
+        <div id="msg2" class="hidden-message">
+            <p><strong>Lo que admiro de ti:</strong> Admiro muchas cosas de ti, pa. Sé que hemos pasado por mucho, pero hoy en día, gracias a ti, he aprendido a seguir un excelente camino. Una de tus frases que siempre llevo conmigo —“no tomes decisiones ni triste ni bravo”— es solo un ejemplo de tus sabias enseñanzas. Tus consejos me han dado fuerzas, mucho más de lo que imaginas. ❤️</p>
+        </div>
+        
+        <div class="achievement-box" onclick="toggleMessage('msg3')">
+            <div class="achievement-title">😄 Achievement: "Alegría Contagiosa"</div>
+            <div class="achievement-desc">Tu risa y buen humor hacen que cada momento sea especial. Conviertes los días ordinarios en aventuras extraordinarias.</div>
+        </div>
+        <div id="msg3" class="hidden-message">
+            <p><strong>Momentos que atesoro:</strong> Te agradezco, pa. Sé que aunque uno va creciendo y madurando, me has enseñado a no dejar de lado a nuestro niño interior, a ese ser lleno de risas y ocurrencias. Gracias por recordarme lo bonito que es compartir, reírnos de nuestras bobadas y disfrutar sin importar lo que digan los demás. Que piensen que no maduramos, no importa, porque estamos viviendo los momentos que más nos hacen felices. Eso se me quedó grabado, y lo llevaré conmigo toda la vida. ❤️</p>
+        </div>
+        
+        <button class="reveal-btn" onclick="revealFinalMessage()">🎁 Presiona para tu mensaje especial 🎁</button>
+        
+        <div id="finalMessage" class="hidden-message">
+            <div class="final-message">
+                <p><strong>Papá,</strong></p>
+                <p style="margin-top: 20px;">
+                    Quiero desearte un muy feliz cumpleaños, pa. ❤️
+Te amo con todo mi corazón y quiero que sepas lo importante que eres para mí. Hoy te doy este pequeño detalle, hecho con todo mi amor y con un poquito del conocimiento que he podido adquirir gracias a la oportunidad que me has dado de estudiar en la universidad. Cada cosa que aprendo, cada paso que doy, lleva un pedacito de lo que me has enseñado.
+
+Gracias por todo lo que has hecho y por todo lo que has luchado por mí. Sé que no ha sido fácil, pero siempre te he visto darlo todo, sin rendirte, con una fuerza y una entrega que admiro muchísimo. Todo lo que soy y lo que sigo construyendo, te lo debo en gran parte a ti.
+                </p>
+                <p style="margin-top: 20px;">
+                   Ojalá puedas ver este mensaje en la mañana, cuando te levantes (aunque no sé si lo alcances a ver, jajaja). Quiero que empieces el día con una sonrisa y con el corazón lleno de alegría, porque te mereces lo mejor del mundo.
+
+Y claro, más tarde nos vemos para celebrar como nos gusta: con unas empanaditas donde el Mono 😄. Lo importante es compartir, reírnos y disfrutar juntos, como siempre lo hacemos.
+
+Te amo con todo mi corazón, pa. ❤️ Gracias por ser mi ejemplo, mi guía y mi compañero de vida. Siempre estaré contigo, en cada paso y en cada logro.
+                </p>
+                <p style="margin-top: 20px; font-size: 1.4em; color: #667eea;">
+                    ¡Feliz Cumpleaños! 🎉🎂🎈
+                </p>
+                <p style="margin-top: 20px; font-style: italic;">
+                    Con todo mi cariño,<br>
+                    tu hijo wlf.serg ejjeje
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleMessage(id) {
+            const element = document.getElementById(id);
+            if (element.style.display === 'none' || element.style.display === '') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+        
+        function revealFinalMessage() {
+            const finalMsg = document.getElementById('finalMessage');
+            finalMsg.style.display = 'block';
+            createConfetti();
+        }
+        
+        function createConfetti() {
+            const colors = ['#667eea', '#764ba2', '#f6d365', '#fda085', '#ff6b6b', '#4ecdc4'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-10px';
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.animation = 'confetti-fall 3s linear';
+                    confetti.style.zIndex = '1000';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 50);
+            }
+        }
+    </script>
+</body>
+</html>
